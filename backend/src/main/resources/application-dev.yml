@@ -1,0 +1,6 @@
+servicedesk:
+  seed-demo-data: true
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.springframework.security: INFO
