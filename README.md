@@ -6,7 +6,7 @@ manage members, assignments and indicators.
 
 Built with **Java 21 · Spring Boot 4 · PostgreSQL · React 19 · TypeScript · Tailwind CSS**.
 
-[![CI](https://img.shields.io/badge/CI-GitHub_Actions-blue)](.github/workflows/ci.yml)
+[![CI](https://github.com/rikich3/servicedesk/actions/workflows/ci.yml/badge.svg)](https://github.com/rikich3/servicedesk/actions/workflows/ci.yml)
 
 ## What it does
 
@@ -91,6 +91,13 @@ docs/      Architecture, data model, API contract, decisions, demo script, query
 - [Query plans](docs/sql/query-plans.md) – `EXPLAIN ANALYZE` evidence for the chosen indexes
 - [Demo script](docs/demo-script.md) – 8–10 minute walkthrough
 - [Project plan](docs/project-plan.md) – milestones, issue breakdown, out of scope
+
+## Traceability
+
+Requirements are tracked as [issues](https://github.com/rikich3/servicedesk/issues?q=is%3Aissue) grouped in six
+[milestones](https://github.com/rikich3/servicedesk/milestones?state=all); changes land through
+[pull requests](https://github.com/rikich3/servicedesk/pulls?q=is%3Apr) that link their issue and the tests that prove them.
+The [CI workflow](https://github.com/rikich3/servicedesk/actions) runs backend, frontend and Cypress jobs on every pull request.
 
 ## Status
 
