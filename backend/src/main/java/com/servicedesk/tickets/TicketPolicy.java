@@ -42,7 +42,8 @@ public class TicketPolicy {
         Set<TicketStatus> byState = t.getStatus().allowedTargets();
         Set<TicketStatus> byRole = switch (m.getRole()) {
             case ADMIN -> EnumSet.allOf(TicketStatus.class);
-            case TECHNICIAN -> t.isAssignedTo(userId)
+            // Assigned technicians drive active tickets; reopening a resolved one is for the requester or an admin.
+            case TECHNICIAN -> t.isAssignedTo(userId) && t.getStatus().isActive()
                     ? EnumSet.of(TicketStatus.IN_PROGRESS, TicketStatus.RESOLVED, TicketStatus.OPEN)
                     : EnumSet.noneOf(TicketStatus.class);
             case REQUESTER -> t.isRequestedBy(userId) && t.getStatus() == TicketStatus.RESOLVED

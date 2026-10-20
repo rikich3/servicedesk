@@ -61,6 +61,12 @@ class TicketPolicyTest {
         ticket.start(Instant.now());
         assertThat(policy.allowedTransitions(as(tech, MemberRole.TECHNICIAN), ticket))
                 .containsExactlyInAnyOrder(TicketStatus.RESOLVED, TicketStatus.OPEN);
+
+        // Once resolved, the technician is done: reopening or closing belongs to the requester/admin.
+        ticket.resolve(Instant.now());
+        assertThat(policy.allowedTransitions(as(tech, MemberRole.TECHNICIAN), ticket)).isEmpty();
+        assertThat(policy.allowedTransitions(as(admin, MemberRole.ADMIN), ticket))
+                .containsExactlyInAnyOrder(TicketStatus.CLOSED, TicketStatus.OPEN);
     }
 
     @Test
