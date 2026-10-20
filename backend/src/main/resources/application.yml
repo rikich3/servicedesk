@@ -30,6 +30,10 @@ server:
     include-message: never
     include-stacktrace: never
 
+servicedesk:
+  # Seeds two demo organizations on first start (dev profile and docker-compose turn it on).
+  seed-demo-data: ${SEED_DEMO_DATA:false}
+
 springdoc:
   api-docs:
     path: /api/docs

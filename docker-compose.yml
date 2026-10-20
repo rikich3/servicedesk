@@ -24,7 +24,7 @@ services:
       DB_URL: jdbc:postgresql://db:5432/servicedesk
       DB_USER: servicedesk
       DB_PASSWORD: servicedesk
-      SERVICEDESK_SEED_DEMO_DATA: "true"
+      SEED_DEMO_DATA: "true"
     ports:
       - "8080:8080"
     depends_on:
